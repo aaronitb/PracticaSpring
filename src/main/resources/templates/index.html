@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado</title>
+</head>
+<body>
+<thead>
+<h2>LISTADO DE FRUTAS </h2>
+<tr>
+    <h3>
+    <form action="#" th:action="@{afegir}" method="post">
+        <th>Nombre</th>
+            <th>Color</th>
+            <th>Sabor</th>
+            <th>Temporada</th>
+        <th><input type="submit" value="Nueva fruta" style="background-color: chartreuse"/></th>
+    </form></h3>
+</tr>
+</thead>
+<tbody>
+<tr th:each="Fruta : ${listaFruta}">
+    <form action="#" th:action="@{update/{name}(name = ${Fruta.nombreFruta})}" th:object="${Fruta}" method="post">
+    <td th:text="${Fruta.nombreFruta}">Nombre Fruta</td>
+    <td th:text="${Fruta.colorFruta}">Color Fruta</td>
+    <td th:text="${Fruta.saborFruta}">Sabor Fruta</td>
+    <td th:text="${Fruta.temporadaFruta}">Temporada Fruta</td>
+        <td><input type="submit" value="Update" style="background-color: coral"/></td>
+    </form>
+    <form action="#" th:action="@{delete/{name}(name = ${Fruta.nombreFruta})}" th:object="${Fruta}" method="post">
+        <input type="submit" value="Remove" style="background-color: crimson"/>
+    </form>
+    <br>
+</tr>
+</tbody>
+<br>
+<h2>ACCIONES</h2>
+<form th:action="@{/login}" method="post">
+    <input type="submit" value="Login" style="background-color: aqua"/>
+</form>
+<br>
+<form th:action="@{/registration}" method="get">
+    <input type="submit" value="Register" style="background-color: aqua"/>
+</form>
+<br>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out" style="background-color: aqua"/>
+</form>
+</body>
+</html>

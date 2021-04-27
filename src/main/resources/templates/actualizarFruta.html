@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ActualizarFruta</title>
+</head>
+<body>
+<h1 th:text="ActualizarFruta">form</h1>
+<form action="#"  th:action="@{/updateFruta}"  th:object="${Fruta}" method="POST" >
+    <div>
+        <label th:text="Nombre">Nombre Fruta</label>
+        <input type="text" id="username" th:field="*{nombreFruta}"/>
+        <p th:each="error: ${#fields.errors('nombreFruta')}"
+           th:text="${error}">Validation error</p>
+    </div>
+    <br>
+    <div>
+        <label th:text="Color">Color Fruta</label>
+        <input type="text"  th:field="*{colorFruta}"/>
+        <p th:each="error : ${#fields.errors('colorFruta')}"
+           th:text="${error}">Validation error</p>
+    </div>
+    <br>
+    <div>
+        <label th:text="Sabor">Sabor Fruta</label>
+        <input type="text"  th:field="*{saborFruta}"/>
+        <p th:each="error : ${#fields.errors('saborFruta')}"
+           th:text="${error}">Validation error</p>
+    </div>
+    <br>
+    <div>
+        <label th:text="Temporada">Temporada Fruta</label>
+        <input type="text"  th:field="*{temporadaFruta}"/>
+        <p th:each="error : ${#fields.errors('temporadaFruta')}"
+           th:text="${error}">Validation error</p>
+    </div>
+    <button type="submit" th:text="Submit">submit</button>
+</form>
+<br>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>
