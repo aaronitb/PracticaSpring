@@ -24,7 +24,6 @@ public class FrutaService {
         repositorioFrutas.save(new Fruta("Platano", "Amarillo", "Dulce", "Primavera"));
         repositorioFrutas.save(new Fruta("Melon", "Verde", "Dulce", "Verano"));
         repositorioFrutas.save(new Fruta("Limon", "Amarillo", "Acido", "Otoño"));
-
     }
 
     public void afegir(Fruta e) {
